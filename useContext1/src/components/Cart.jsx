@@ -1,13 +1,18 @@
 import React from 'react';
 import { Trash2, Plus, Minus } from 'lucide-react';
+import { useContext } from 'react';
+import { CartContext } from '../context/CartContext';
 
 export function Cart() {
-  const items = [];
-  function removeItem() {}
-  function updateQuantity() {}
-  const getTotal = () => 0;
+
+  const { cartItems, removeItem, updateQuantity, getTotal } = useContext(CartContext);
+
+  // const items = [];
+  // function removeItem() {}
+  // function updateQuantity() {}
+  // const getTotal = () => 0;
   
-  if (items.length === 0) {
+  if (cartItems.length === 0) {
     return (
       <div className="text-center p-4 bg-gray-50 rounded-lg">
         <p className="text-gray-500">Your cart is empty</p>
@@ -19,7 +24,7 @@ export function Cart() {
     <div className="bg-white rounded-lg shadow-md p-4">
       <h2 className="text-xl font-bold mb-4">Shopping Cart</h2>
       <div className="space-y-4">
-        {items.map(item => (
+        {cartItems.map(item => (
           <div key={item.id} className="flex items-center justify-between border-b pb-2">
             <div>
               <h3 className="font-semibold">{item.name}</h3>

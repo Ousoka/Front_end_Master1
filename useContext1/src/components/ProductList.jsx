@@ -1,4 +1,6 @@
 import React from 'react';
+import { useContext } from 'react';
+import { CartContext } from '../context/CartContext';
 
 const products = [
   { id: 1, name: 'Laptop', price: 999.99 },
@@ -6,10 +8,16 @@ const products = [
   { id: 3, name: 'Mouse', price: 29.99 },
 ];
 
+
 export function ProductList() {
   // const { addItem } = useCart();
-  function addItem(product){}
-  
+  // function addItem(product){}
+  const { addItem } = useContext(CartContext);
+
+  // const handleAddToCart = (product) => {
+  //   addItem(product);
+  // };
+
   return (
     <div className="grid gap-4 grid-cols-1 md:grid-cols-3">
       {products.map(product => (

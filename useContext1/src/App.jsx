@@ -2,10 +2,11 @@ import React from 'react';
 import { ProductList } from './components/ProductList';
 import { Cart } from './components/Cart';
 import { ShoppingCart } from 'lucide-react';
+import { CartProvider } from './context/CartContext';
 
 function App() {
   return (
-    // <CartProvider>
+    <CartProvider>
       <div className="min-h-screen bg-gray-100 p-8">
         <div className="max-w-4xl mx-auto space-y-8">
           <header className="text-center">
@@ -31,7 +32,7 @@ function App() {
           </main>
         </div>
       </div>
-    // </CartProvider>
+    </CartProvider>
   );
 }
 
